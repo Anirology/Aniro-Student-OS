@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
-    "check": "node --check server.mjs && node --check ai.mjs && node --check dist/app.js && node --check dist/capture-parser.mjs",
+    "check": "node --check server.mjs && node --check ai.mjs && node --check dist/app.js && node --check dist/capture-parser.mjs && node --check dist/habits.mjs && node --check dist/sw.js",
     "test": "node --test"
   },
   "engines": { "node": ">=24" }

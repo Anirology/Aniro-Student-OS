@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { parseWithGemini } from './ai.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
-if (existsSync(resolve(root, '.env.local'))) process.loadEnvFile(resolve(root, '.env.local'));
+if (!Object.hasOwn(process.env, 'GEMINI_API_KEY') && existsSync(resolve(root, '.env.local'))) process.loadEnvFile(resolve(root, '.env.local'));
 const staticDir = resolve(root, 'dist');
 const dataDir = resolve(root, 'data');
 await mkdir(dataDir, { recursive: true });
@@ -95,7 +95,7 @@ function validState(s) {
   if (!s || s.version !== 1 || typeof s.settings !== 'object') return false;
   return ['modules','assignments','sessions','transactions','health','habits','checkins','messages','plans','audit'].every(k=>Array.isArray(s[k]));
 }
-const initialState = () => ({ version:1, draftText:'', settings:{ name:'there', budget:15000, calendarClientId:'', calendarId:'primary', lowEnergy:false }, modules:[], assignments:[], sessions:[], transactions:[], health:[], habits:[], checkins:[], messages:[], plans:[], audit:[] });
+const initialState = () => ({ version:1, draftText:'', settings:{ name:'there', budget:15000, calendarClientId:'258004480200-4s9gu43as0qctbjt3camklg4tvbarnan.apps.googleusercontent.com', calendarId:'primary', lowEnergy:false }, modules:[], assignments:[], sessions:[], transactions:[], health:[], habits:[], checkins:[], messages:[], plans:[], audit:[] });
 
 async function api(req, res, pathname) {
   if (!['GET','POST','PUT'].includes(req.method)) return bad(res,405,'Method not allowed');

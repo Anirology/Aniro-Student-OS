@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./fullstack.css">
+  <link rel="stylesheet" href="./habits.css">
   <title>Aniro — Your day, in one place</title>
 </head>
 <body>
@@ -29,7 +30,7 @@
   </div>
   <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation"></nav>
   <div id="toast" role="status" aria-live="polite"></div>
-  <dialog id="modal"><form method="dialog" class="modal-shell"><button class="modal-close icon-button" value="cancel" aria-label="Close dialog">×</button><div id="modal-content"></div></form></dialog>
+  <dialog id="modal" aria-label="Aniro dialog"><div class="modal-shell"><button type="button" class="modal-close icon-button" data-action="close-modal" aria-label="Close dialog">×</button><div id="modal-content"></div></div></dialog>
   <input id="import-file" type="file" accept="application/json,.json" hidden>
   <script src="./app.js" type="module"></script>
 </body>

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
 
-const child=spawn(process.execPath,['server.mjs'],{cwd:new URL('..',import.meta.url),env:{...process.env,ANIRO_DATABASE_PATH:':memory:',ANIRO_PORT:'0',ANIRO_HOST:'127.0.0.1'},stdio:['ignore','pipe','pipe']});
+const child=spawn(process.execPath,['server.mjs'],{cwd:new URL('..',import.meta.url),env:{...process.env,ANIRO_DATABASE_PATH:':memory:',ANIRO_PORT:'0',ANIRO_HOST:'127.0.0.1',GEMINI_API_KEY:''},stdio:['ignore','pipe','pipe']});
 let output='';
 const base=await new Promise((resolve,reject)=>{const timeout=setTimeout(()=>reject(Error('Test server did not start')),10000);child.stdout.on('data',chunk=>{output+=chunk;const found=output.match(/http:\/\/127\.0\.0\.1:\d+/);if(found){clearTimeout(timeout);resolve(found[0])}});child.once('exit',code=>reject(Error(`Test server exited: ${code}`)))});
 let cookie='';

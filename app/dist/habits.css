@@ -1,0 +1,43 @@
+.habit-panel{margin:32px 0 14px;padding:25px 0 8px;border-top:2px solid var(--ink)}
+.habit-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:18px}
+.habit-heading .kicker{margin-bottom:8px}
+.habit-heading h2{margin:0 0 6px}
+.habit-heading p{margin:0;max-width:56ch}
+.habit-list{border-top:1px solid var(--line)}
+.habit-row{min-height:74px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);padding:12px 2px}
+.habit-row-copy{flex:1;min-width:0}
+.habit-row-copy strong{display:block;font:600 17px/1.25 'Space Grotesk',sans-serif;letter-spacing:-.025em}
+.habit-row-copy small{display:block;margin-top:5px;color:var(--muted);font-size:12px;line-height:1.4}
+.habit-toggle{border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:9px;min-height:44px;min-width:112px;padding:9px 13px;font-size:13px;font-weight:700;transition:background .2s,transform .2s}
+.habit-toggle:hover{background:var(--lime-wash)}
+.habit-toggle:active,.heatmap-day:active{transform:scale(.97)}
+.habit-toggle.is-done{background:var(--lime);border-color:var(--lime)}
+.habit-edit{border:0;background:none;color:var(--muted);text-decoration:underline;text-underline-offset:3px;min-height:44px;padding:8px;font-size:12px}
+.habit-edit:hover{color:var(--ink)}
+.habit-empty{padding:17px 2px;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.habit-add{display:grid;gap:9px;max-width:650px;margin-top:20px}
+.habit-add label{font:600 11px 'JetBrains Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.habit-add>div{display:flex;gap:8px}
+.habit-add input{min-width:0;flex:1;min-height:44px;border:1px solid #B8BDB1;background:var(--surface);border-radius:8px;padding:10px 13px;color:var(--ink)}
+.habit-add input:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+.heatmap-panel{margin-top:30px;padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.heatmap-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}
+.heatmap-heading h3{font-size:1.55rem;margin:6px 0 4px}
+.heatmap-heading p{margin:0;color:var(--muted);font-size:13px}
+.heatmap-heading .field{min-width:190px}
+.heatmap-scroll{overflow-x:auto;padding:2px 0 8px}
+.heatmap-layout{display:flex;align-items:start;gap:9px;width:max-content}
+.heatmap-weekdays{display:grid;grid-template-rows:repeat(7,30px);gap:3px;color:var(--muted);font:10px 'JetBrains Mono',monospace}
+.heatmap-weekdays span{display:flex;align-items:center}
+.heatmap-grid{display:grid;grid-template-rows:repeat(7,30px);grid-auto-columns:30px;grid-auto-flow:column;gap:3px}
+.heatmap-day{display:grid;place-items:center;width:30px;height:30px;padding:0;border:0;background:transparent;border-radius:5px;transition:transform .17s}
+.heatmap-day::before{content:'';width:22px;height:22px;border-radius:4px;background:#E8ECDD;border:1px solid #D9E0CF;transition:background .17s}
+.heatmap-day.is-done::before{background:#87B72B;border-color:#75A222}
+.heatmap-day.is-today::before{outline:2px solid var(--ink);outline-offset:2px}
+.heatmap-day:not(:disabled):hover::before{background:var(--lime)}
+.heatmap-day:disabled{cursor:default;opacity:.35}
+.heatmap-day:focus-visible{outline:2px solid var(--ink);outline-offset:0}
+.heatmap-help{margin:10px 0 0;color:var(--muted);font-size:12px}
+.modal-guide{max-width:52ch;color:var(--muted);font-size:13px;margin:-6px 0 20px}
+@media(max-width:800px){.heatmap-weekdays{grid-template-rows:repeat(7,44px);gap:2px}.heatmap-grid{grid-template-rows:repeat(7,44px);grid-auto-columns:44px;gap:2px}.heatmap-day{width:44px;height:44px}.heatmap-day::before{width:31px;height:31px}}
+@media(max-width:600px){.habit-heading,.heatmap-heading{align-items:start;flex-direction:column}.habit-row{gap:8px}.habit-toggle{min-width:102px}.habit-add>div{flex-wrap:wrap}.habit-add input{flex-basis:100%}.habit-add .button{width:100%}.capture-footer{flex-wrap:wrap}.capture-footer .row-wrap{width:100%}.capture-footer .row-wrap .button{flex:1}}
